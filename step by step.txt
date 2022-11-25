@@ -1,0 +1,15 @@
+First step was to download and install VS Code, Python, Git and Docker
+From Python, installed pipenv, created a virtual environment and installed Flask in it
+Then I added the Python extension to VS Code
+I created a private repository named "futur-flask" on Github with only a README file and a .gitignore file
+Next, I created a simple endpoint to test if my flask installation was correct
+From this endpoint I created the event model and modified the endpoint to list the events
+And then I created the ticket model so I could create the database without migrations
+I created a simple database with SQLAlchemy using the models and populated with an event and some tickets
+Then I tested the endpoint to list the events and created a template for it to have some frontend action
+I created a base html template so it's reausable and the html code that matters is easier to understand and maintain
+Then, I created the other endpoints, one for creating an event and its tickets, one endpoint to visualize it,
+And lastly, the endpoint to redeem tickets.
+I've tested and tweaked it a bit in order for it work properly
+I set up a way for the data to be repopulated with a test event every time the backend is loaded.
+You can use http://localhost:5000/ to check out the frontend

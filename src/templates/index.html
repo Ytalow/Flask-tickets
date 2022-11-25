@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Homepage</title>
+{% endblock %}
+
+{% block content %}
+    <h1 style="text-align: center;">
+        Nova Futur Event Ticket Management
+    </h1>
+    <br/>
+    <a href="/">
+        <button type="button" class="btn btn-primary">
+            Refresh
+        </button>
+    </a>
+    <table class="table table-info">
+        <thead>
+            <tr> 
+                <th scope="col">#</th>
+                <th scope="col">Event name</th>
+                <th scope="col">Event date</th>
+                <th scope="col">Total tickets</th>
+                <th scope="col">Redeemed tickets</th>
+            </tr>    
+        </thead>
+        <tbody>
+            {% for event in events %}
+            <tr>
+                <td><a href="{{ url_for('event_visualizer', event_id='%s' %event.id) }}">{{ event.id }}</a></td>
+                <td>{{ event.name }}</td>
+                <td>{{ event.date }}</td>
+                <td>{{ event.total_tickets }}</td>
+                <td>{{ event.redeemed_tickets }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

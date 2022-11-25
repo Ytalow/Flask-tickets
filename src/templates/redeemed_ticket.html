@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Ticket #{{ ticket.id }} Redeem Page</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container text-center">
+        <h3>
+            The ticket #{{ ticket.id }} for the event {{ event_name }} was redeemed successfully!
+        </h3>
+        <a href="/">
+            <button type="button" class="btn btn-primary">
+                Return to Homepage
+            </button>
+        </a>
+        <a href="{{ url_for('event_visualizer', event_id ='%s' %ticket.event_id) }}">
+            <button type="button" class="btn btn-primary">
+                Return to Event
+            </button>
+        </a>
+    </div>
+{% endblock %}

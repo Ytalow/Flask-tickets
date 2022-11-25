@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Event #{{ event.id }} Page</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container text-center">
+        <h1>
+            Ticket Management for {{ event }}
+        </h1>
+        <br/>
+        <a href="/">
+            <button type="button" class="btn btn-primary">
+                Return
+            </button>
+        </a>
+        <a href="{{ url_for('event_visualizer', event_id='%s' %event.id) }}">
+            <button type="button" class="btn btn-primary">
+                Refresh
+            </button>
+        </a>
+        <table class="table table-info">
+            <thead>
+                <tr> 
+                    <th scope="col">#</th>
+                    <th scope="col">Availability</th>
+                    <th scope="col">Redeem link</th>
+                </tr>    
+            </thead>
+            <tbody>
+                {% for ticket in tickets %}
+                <tr>
+                    <td>{{ ticket.id }}</td>
+                    {% if ticket.redeemed == false %}
+                    <td>Available</td>
+                    <td>
+                        <a href="{{ url_for('redeem_ticket', event_id='%s' %event.id, ticket_id='%s' %ticket.id) }}">
+                            <button type="button" class="btn btn-primary">
+                                Redeem
+                            </button>
+                        </a>
+                    </td>
+                    {% else %}
+                        <td class="text-danger">Unavailable<td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
