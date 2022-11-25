@@ -1,7 +1,6 @@
 from src import app, db
 from src.models import Event, Ticket
-from flask import render_template, request
-from sqlalchemy import update
+from flask import render_template
 
 @app.route("/", methods=["GET"])
 def homepage():

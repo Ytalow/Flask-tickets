@@ -19,4 +19,7 @@ class Ticket(db.Model):
         return self.id
 
 with app.app_context():
+    # clear database
+    db.drop_all()
+    # create tables
     db.create_all()
